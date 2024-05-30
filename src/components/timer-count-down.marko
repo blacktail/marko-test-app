@@ -1,0 +1,31 @@
+import { secondsToDhms } from "../utils/time";
+
+<div class="container">
+    ${component.getLeftTimeStr()}
+</div>
+class {
+    onCreate() {
+        this.state = { elapsedSeconds: 0 };
+    }
+    onMount() {
+        // We can change to performance.now to high precision here,
+        // Though Date.now is enough in most cases.
+        const startTime = performance.now();
+        this.timer = setInterval(() => {
+            const now = performance.now();
+            this.state.elapsedSeconds = (now - startTime) / 1000;
+        }, 500);
+    }
+    onDestroy() {
+        clearInterval(this.timer);
+    }
+
+    getLeftTimeStr() {
+        const leftSeconds = Math.max(
+            (this.input.days || 0) * 24 * 3600 - this.state.elapsedSeconds,
+            0,
+        );
+
+        return secondsToDhms(leftSeconds);
+    }
+}

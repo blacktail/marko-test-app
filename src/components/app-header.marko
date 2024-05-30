@@ -1,0 +1,53 @@
+<div class="app-header">
+    <div class="logo">
+        LOGO
+    </div>
+    <div class="right">
+        <div class="timer">
+            <timer-count-down days=3/>
+        </div>
+        <h2>Allstate Extended Vehicle Care</h2>
+        <h1>
+            Protection that
+            <strong> beyond your warranty</strong>
+        </h1>
+    </div>
+</div>
+style.less {
+    .app-header {
+        display: flex;
+        column-gap: 16px;
+        padding: 40px;
+        background: #0d1940;
+        border-radius: 4px;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            flex-shrink: 0;
+            align-items: center;
+            background: #75c5e9;
+            width: 64px;
+            height: 64px;
+        }
+
+        h1 {
+            font-size: 60px;
+
+            strong {
+                color: #73c2e6;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .app-header {
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+    }
+}

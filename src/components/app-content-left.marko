@@ -1,0 +1,84 @@
+<div class="app-content-left">
+    <div class="title">
+        <h3>Allstate Extended Vehicle Care</h3>
+        <p>
+            For as little as $19/mo, we'll pay for repairs after your manufacturer's warranty expires.
+        </p>
+    </div>
+    <ul class="content">
+        <for|item, index| of=state.items>
+            <li>
+                <div class="item-img"/>
+                <div class="item-content">
+                    <div class="item-title">
+                        ${item.title}
+                    </div>
+                    <div class="item-desc">
+                        ${item.description}
+                    </div>
+                </div>
+            </li>
+        </for>
+    </ul>
+</div>
+class {
+    onCreate() {
+        this.state = {
+            items: [
+                {
+                    title: "Affordable Protection Plans",
+                    description:
+                        "Save up to 50% when you buy online from Allstate",
+                },
+                {
+                    title: "100% of covered repair costs",
+                    description:
+                        "Covers everything from your steering and transmission, down to the fancy tech inside your touchscreen. All you pay is a $50 deductible",
+                },
+                {
+                    title: "Repair Anywhere",
+                    description:
+                        "You choose your mechanic, and we pay them directly for repairs, so you are't stuck chasing down reimbursements.",
+                },
+            ],
+        };
+    }
+}
+style {
+    .app-content-left {
+        .title {
+            background: #0133a0;
+            padding: 32px;
+            border-radius: 4px 4px 0 0;
+
+            h3 {
+                color: #75c5e9;
+            }
+        }
+        ul.content {
+            margin: 0;
+            padding: 0;
+            li {
+                display: flex;
+                column-gap: 20px;
+                padding: 30px 0;
+
+                .item-img {
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid #75c5e9;
+                    flex-shrink: 0;
+                    border-radius: 30px;
+                }
+
+                .item-title {
+                    color: black;
+                }
+
+                .item-desc {
+                    color: #a0a0a0;
+                }
+            }
+        }
+    }
+}
